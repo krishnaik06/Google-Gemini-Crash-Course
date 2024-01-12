@@ -1,31 +1,35 @@
-# Import module 
-import sqlite3 
-  
-# Connecting to sqlite 
-conn = sqlite3.connect('test.db') 
-  
-# Creating a cursor object using the  
-# cursor() method 
-cursor = conn.cursor() 
-  
-# Creating table 
-table ="""CREATE TABLE STUDENT(NAME VARCHAR(255), CLASS VARCHAR(255), 
-SECTION VARCHAR(255));"""
-cursor.execute(table) 
-  
-# Queries to INSERT records. 
-cursor.execute('''INSERT INTO STUDENT VALUES ('Raju', '7th', 'A')''') 
-cursor.execute('''INSERT INTO STUDENT VALUES ('Shyam', '8th', 'B')''') 
-cursor.execute('''INSERT INTO STUDENT VALUES ('Baburao', '9th', 'C')''') 
-  
-# Display data inserted 
-print("Data Inserted in the table: ") 
-data=cursor.execute('''SELECT * FROM STUDENT''') 
-for row in data: 
-    print(row) 
-  
-# Commit your changes in the database     
-conn.commit() 
-  
-# Closing the connection 
-conn.close()
+import sqlite3
+
+## Connectt to SQlite
+connection=sqlite3.connect("student.db")
+
+# Create a cursor object to insert record,create table
+
+cursor=connection.cursor()
+
+## create the table
+table_info="""
+Create table STUDENT(NAME VARCHAR(25),CLASS VARCHAR(25),
+SECTION VARCHAR(25),MARKS INT);
+
+"""
+cursor.execute(table_info)
+
+## Insert Some more records
+
+cursor.execute('''Insert Into STUDENT values('Krish','Data Science','A',90)''')
+cursor.execute('''Insert Into STUDENT values('Sudhanshu','Data Science','B',100)''')
+cursor.execute('''Insert Into STUDENT values('Darius','Data Science','A',86)''')
+cursor.execute('''Insert Into STUDENT values('Vikash','DEVOPS','A',50)''')
+cursor.execute('''Insert Into STUDENT values('Dipesh','DEVOPS','A',35)''')
+
+## Disspaly ALl the records
+
+print("The isnerted records are")
+data=cursor.execute('''Select * from STUDENT''')
+for row in data:
+    print(row)
+
+## Commit your changes int he databse
+connection.commit()
+connection.close()
