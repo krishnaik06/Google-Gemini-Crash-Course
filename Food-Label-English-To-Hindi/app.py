@@ -50,12 +50,23 @@ You are an expert nutritionist as well as an expert translator between English a
 You need to read the food label items, including ingredients and nutritional facts, from the image of back packaging food label (mainly in English)
 and translate the product details to Hindi.
 
-Output the translation in Hindi of all the following as separate titles like so:
+Output the translation in Hindi of all the following as separate titles in bold like so:
 
-1. Ingredients (and then list the ingredients in Hindi)
-2. Nutrition details of the food items (list them in Hindi)
-3. Your verdict on the healthiness of the food product in Hindi
-4. What are some home cooked healthier alternatives to the product provided in Hindi
+1. सामग्री
+
+Then list the ingredients of the food product below the ingredients title
+
+2. पोषण संबंधी जानकारी
+
+Then list the nutritional details of the food product below the Nutrition details title
+
+3. क्या यह उत्पाद स्वस्थ या अस्वस्थ है
+
+In one to two sentences, describe if the product is healthy or unhealthy.
+
+4. उत्पाद के लिए घर पर पकाया गया स्वस्थ विकल्प
+
+Describe the healthier alternatives to the product provided. If you wish, you can also suggest a healthier dish with similar to the product provided.
 """
 
 # If submit button is clicked
