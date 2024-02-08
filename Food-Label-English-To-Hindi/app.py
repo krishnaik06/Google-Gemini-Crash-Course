@@ -24,6 +24,25 @@ def get_gemini_response(prompt, image):
 st.set_page_config(page_title="Translate Food Package Labels From English to Hindi with Google Gemini",
                    page_icon=":fork_and_knife:", layout="wide")
 
+# GitHub link and logo in the sidebar
+
+st.sidebar.markdown(
+    """
+    <a href="https://github.com/TegveerG/Google-Gemini-Crash-Course/blob/main/Food-Label-English-To-Hindi/app.py">
+        <img src="https://badgen.net/badge/icon/GitHub?icon=github&label" width="100">
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+
+# Add space
+
+st.sidebar.markdown(
+    """
+
+    """
+)
+
 # Add food and health-related images
 fssai_image = "https://bsmedia.business-standard.com/_media/bs/img/article/2023-04/21/full/1682088340-8915.png?im=FeatureCrop,size=(826,465)"
 healthy_food_image = "https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg"
