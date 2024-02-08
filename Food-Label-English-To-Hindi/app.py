@@ -55,8 +55,9 @@ st.sidebar.image(unhealthy_food_image, caption="Unhealthy Foods/अस्वस�
 # Main content of the app
 st.title("Translate Food Package Labels From English to Hindi with Google Gemini")
 st.header("गूगल जेमिनी के साथ खाद्य पैकेज लेबल्स को अंग्रेजी से हिंदी में अनुवाद करें")
+st.markdown("Input food package label image, preferably of both ingredients and nutritional facts. If both do not fit in one image, you can upload ingredients only.")
 
-uploaded_file = st.file_uploader("Input food package label image/खाद्य पैकेज लेबल चित्र दर्ज करें", type=["jpg", "jpeg", "png", "PNG", "JPG", "JPEG"])
+uploaded_file = st.file_uploader("खाद्य पैकेज लेबल की तस्वीर दर्ज करें, जिसमें मुख्य रूप से सामग्री और पोषण संबंधी जानकारी होनी चाहिए। अगर एक ही तस्वीर में दोनों नहीं आते हैं, तो आप केवल सामग्री वाली तस्वीर अपलोड कर सकते हैं।", type=["jpg", "jpeg", "png"])
 image = ""
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
