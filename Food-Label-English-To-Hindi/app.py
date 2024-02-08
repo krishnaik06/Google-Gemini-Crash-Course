@@ -98,3 +98,28 @@ if submit:
     # Display the additional image below the product details
     additional_image_url = "https://healthylife.werindia.com/wp-content/uploads/2015/04/Food-Safety-Label.jpg"
     st.image(additional_image_url, caption="FSSAI's Food Label requirements in India/भारत में खाद्य सुरक्षा और मानक प्राधिकृति निगम के खाद्य लेबल आवश्यकताओं", use_column_width=False)
+
+def collect_telemetry_data(text, selected_model, prediction_text):
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    telemetry_data[timestamp] = {
+        'input_data': text,
+        'selected_model': selected_model,
+        'prediction_text': prediction_text
+    }
+    # Save telemetry data to a JSON file with the current date and time as the filename
+    filename = f"telemetry_data_{timestamp.replace(' ', '_').replace(':', '-')}.json"
+    with open(filename, 'w') as file:
+        json.dump(telemetry_data[timestamp], file, indent=4)
+
+def save_telemetry_to_db(text, selected_model, prediction_text):
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    telemetry_entry = TelemetryData(
+        timestamp=timestamp,
+        input_data=text,
+        selected_model=selected_model,
+        prediction_text=prediction_text
+    )
+    db.session.add(telemetry_entry)
+    db.session.commit()
+
+
