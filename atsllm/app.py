@@ -32,8 +32,8 @@ You must consider the job market is very competitive and you should provide
 best assistance for improving thr resumes. Assign the percentage Matching based 
 on Jd and
 the missing keywords with high accuracy
-resume:{text}
-description:{jd}
+resume:{resume_info}
+description:{job_description}
 
 I want the response in one single string having the structure
 {{"JD Match":"%","MissingKeywords:[]","Profile Summary":""}}
@@ -49,6 +49,7 @@ submit = st.button("Submit")
 
 if submit:
     if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt)
+        text = input_pdf_text(uploaded_file)
+        formatted_input_prompt = input_prompt.format(resume_info = text, job_description = jd)
+        response=get_gemini_repsonse(formatted_input_prompt)
         st.subheader(response)
