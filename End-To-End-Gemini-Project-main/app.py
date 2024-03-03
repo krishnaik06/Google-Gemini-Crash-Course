@@ -44,7 +44,8 @@ submit=st.button("Ask the question")
 ## If ask button is clicked
 
 if submit:
-    
+     if uploaded_file is None:
+        st.error("Please upload an image before submitting.")
     response=get_gemini_response(input)
     st.subheader("The Response is")
     st.write(response)
