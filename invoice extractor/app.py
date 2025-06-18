@@ -55,5 +55,5 @@ and you will have to answer any questions based on the uploaded invoice image
 if submit:
     image_data=input_image_details(uploaded_file)
     response=get_gemini_response(input_prompt,image_data,input)
-    st.subheader("The Rresponse is")
+    st.subheader("The Response is")
     st.write(response)
